@@ -51,6 +51,6 @@ class SentimentRecommenderModel:
             # For each product, calculate the % of positive sentiments across all the sentiments of that product
             temp_grouped['pos_sentiment_percent'] = np.round(
                 temp_grouped["pos_review_count"]/temp_grouped["total_review_count"]*100, 2)
-            pred_df = temp_grouped[["name", "pos_sentiment_percent"]]
+            pred_df = temp_grouped[["name", "pos_sentiment_percent"]][:5]
 
             return pred_df.sort_values('pos_sentiment_percent', ascending=False)
